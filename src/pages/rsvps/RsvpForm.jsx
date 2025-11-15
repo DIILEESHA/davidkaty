@@ -76,7 +76,10 @@ const handleSubmit = async (e) => {
     <div className="rsvps">
       <div className="home_section">
         <div className="homer">
+          <a href="/">
+
           <House color="#fff" size={15} />
+          </a>
         </div>
         <div className="homer">/</div>
         <div className="homer">
