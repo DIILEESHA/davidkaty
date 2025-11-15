@@ -27,7 +27,7 @@ const AdminDashboard = () => {
 
   // Handle login
   const handleLogin = () => {
-    if (password === "123") {
+    if (password === "dk2026") {
       localStorage.setItem("admin_auth", "true");
       setIsLoggedIn(true);
       setShowLogin(false);
