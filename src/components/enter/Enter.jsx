@@ -105,6 +105,18 @@ const Enter = () => {
             </button>
           </motion.div>
         </div>
+
+        <motion.p
+          className="enter_p width_cut"
+          variants={fadeUp}
+          transition={{ delay: 0.2 }}
+        >
+          A bus will run from central Blandford to the venue and back. It leaves
+          the Morrison car park at 5:30 PM and returns from Redlands at 11:00
+          PM.
+        </motion.p>
+        <br />
+        <br />
       </motion.div>
 
       {/* Entertainment Section */}
@@ -152,8 +164,7 @@ const Enter = () => {
             </button>
           </motion.div>
 
-
-    <motion.div
+          <motion.div
             className="enter_subs"
             variants={zoomIn}
             transition={{ delay: 0.3 }}
@@ -214,7 +225,6 @@ const Enter = () => {
             </p>
           </motion.div>
 
-
           <motion.div
             className="enter_subs"
             variants={zoomIn}
@@ -240,12 +250,8 @@ const Enter = () => {
               </a>
             </button>
           </motion.div>
-
-      
         </div>
       </motion.div>
-
- 
     </div>
   );
 };
