@@ -16,7 +16,11 @@ const Story = () => {
   // Unique animations
   const zoomFade = {
     hidden: { opacity: 0, scale: 1.1 },
-    show: { opacity: 1, scale: 1, transition: { duration: 1, ease: "easeOut" } },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 1, ease: "easeOut" },
+    },
   };
 
   const slideRight = {
@@ -148,7 +152,11 @@ const Story = () => {
           initial="hidden"
           animate={inView2 ? "show" : "hidden"}
         >
-          <img src={tr} alt="" className="story_img" />
+          <img
+            src="https://www.redlandsbreaks.co.uk/wp-content/uploads/2024/07/bluebell_square.jpeg"
+            alt=""
+            className="story_img"
+          />
         </motion.div>
       </div>
     </div>
