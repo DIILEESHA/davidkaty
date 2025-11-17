@@ -152,33 +152,8 @@ const Enter = () => {
             </button>
           </motion.div>
 
-          <motion.div
-            className="enter_subs"
-            variants={zoomIn}
-            transition={{ delay: 0.5 }}
-          >
-            <img
-              src="https://img.warble-entertainment.com//689/the-hype10.jpg"
-              alt=""
-              className="enter_band_img"
-            />
-            <h2 className="band_name">The Nashville Heat</h2>
-            <p className="band_more">
-              A talented group blending soulful melodies and vibrant rhythms to
-              create a lively and memorable atmosphere.
-            </p>
-            <button className="view">
-              <a
-                href="http://www.thenashvilleheat.co.uk/"
-                target="_blank"
-                className="website_link"
-              >
-                website Link
-              </a>
-            </button>
-          </motion.div>
 
-          <motion.div
+    <motion.div
             className="enter_subs"
             variants={zoomIn}
             transition={{ delay: 0.3 }}
@@ -238,16 +213,39 @@ const Enter = () => {
               Character Man, Wendy Sax, and Fire Dancers.
             </p>
           </motion.div>
+
+
+          <motion.div
+            className="enter_subs"
+            variants={zoomIn}
+            transition={{ delay: 0.5 }}
+          >
+            <img
+              src="https://img.warble-entertainment.com//689/the-hype10.jpg"
+              alt=""
+              className="enter_band_img"
+            />
+            <h2 className="band_name">The Nashville Heat</h2>
+            <p className="band_more">
+              A talented group blending soulful melodies and vibrant rhythms to
+              create a lively and memorable atmosphere.
+            </p>
+            <button className="view">
+              <a
+                href="http://www.thenashvilleheat.co.uk/"
+                target="_blank"
+                className="website_link"
+              >
+                website Link
+              </a>
+            </button>
+          </motion.div>
+
+      
         </div>
       </motion.div>
 
-      <motion.h2
-        className="timeline_title"
-        id="where-to-stay"
-        variants={fadeUp}
-      >
-        Other Entertainment
-      </motion.h2>
+ 
     </div>
   );
 };
