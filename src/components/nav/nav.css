@@ -1,7 +1,7 @@
 .nav {
   position: fixed;
   width: 100%;
-  z-index: 100;
+  z-index: 10000;
   top: 0;
   left: 0;
   transition: background-color 0.3s ease, padding 0.3s ease;
@@ -31,6 +31,8 @@
 
 .nav_ul {
   display: flex;
+  position: relative;
+  z-index: 10000000;
   gap: 40px;
   align-items: center;
 }

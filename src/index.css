@@ -5,6 +5,47 @@
   scroll-behavior: smooth;
 }
 
+.apply {
+  min-height: 100vh;
+  background-image: url("./assets/bee.jpg");
+  /* backdrop-filter: blur(6px); */
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-y: auto; /* allow scrolling for Home components */
+}
+
+.sold {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  background-image: url("./assets/bee.jpg");
+  background-size: cover;
+  background-position: center center;
+  overflow-y: scroll;
+}
+
+.tex{
+  position: relative;
+}
+
+.tex::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  display: flex;align-items: center;justify-content: center;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+
+  height: 100%;
+}
+
+.tex {
+  position: relative;
+}
+
 @font-face {
   font-family: "rapid";
   src: url("../public/fonts/GreatVibes-Regular.ttf") format("truetype");

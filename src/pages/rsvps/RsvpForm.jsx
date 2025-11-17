@@ -73,7 +73,7 @@ const handleSubmit = async (e) => {
 
 
   return (
-    <div className="rsvps">
+    <div className="rsvps tex">
       <div className="home_section">
         <div className="homer">
           <a href="/">

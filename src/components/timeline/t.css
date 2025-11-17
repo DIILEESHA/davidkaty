@@ -1,8 +1,9 @@
 .timeline {
   width: 100%;
-  background-image: url("../../assets/timeline.jpg");
+  /* background-image: url("../../assets/timeline.jpg"); */
   background-size: cover;
   background-position: center center;
+  overflow: hidden;
   position: relative;
   padding: 80px 0px;
 }
@@ -16,13 +17,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(6px);
+  /* background-color: rgba(0, 0, 0, 0.6); */
+  /* backdrop-filter: blur(6px); */
 }
 
 .timeline_title {
   text-align: center;
   color: #fff;
+  text-shadow: 1px 2px 1px #ff9d00;
+
   z-index: 1;
   position: relative;
   font-family: "rapid";
@@ -45,7 +48,10 @@
 .timeline_grid::after {
   height: 100%;
   width: 2px;
-  background-color: #fff;
+  background-color: #ff9d00;
+ background: linear-gradient(135deg, #B6771D 40%, #FF9D00 60%, #000000 100%);
+ background: linear-gradient(135deg, #FAB12F 40%, #FF9D00 60%, #FA812F 100%);
+
   position: absolute;
   display: flex;
   align-items: center;
@@ -70,6 +76,7 @@
   background-image: url("../../assets/heart.png");
   width: 20px;
   height: 20px;
+  z-index: 1;
   top: -5px;
   transform: rotate(0deg);
   margin: 0 auto;
@@ -91,6 +98,8 @@
   font-size: 26px;
   margin-bottom: 10px;
   font-family: "play";
+  text-shadow: 1px 2px 1px #ff9d00;
+  
   font-weight: bold;
 }
 
@@ -136,7 +145,7 @@
     font-size: 20px;
   }
 
-  .actual_timeline{
+  .actual_timeline {
     width: 80%;
     line-height: 150%;
   }

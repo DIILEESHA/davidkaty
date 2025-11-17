@@ -1,18 +1,48 @@
 import Nav from "../nav/Nav";
 import "./h.css";
+import cos from "../../assets/couple.jpg";
+
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
-    <div className="header">
-      <Nav />
-      <div className="couple_name_section">
-        <h1 className="couple_name">David & Katy</h1>
-      </div>
+    <motion.div
+      className="header"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
+      {/* NAV - soft fade from top */}
 
-      <div className="date_section">
-        <h2 className="date">June 06, 2026</h2>
-      </div>
-    </div>
+      <Nav />
+
+      {/* IMAGE - subtle slow zoom-in */}
+      <motion.div
+        className="header_img"
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.8, ease: "easeOut" }}
+      >
+        <img src={cos} alt="" className="header_imger" />
+      </motion.div>
+
+      {/* COUPLE NAME - elegant slide up and fade */}
+      <motion.div
+        className="couple_name_section"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5, ease: "easeOut", delay: 0.3 }}
+      >
+        <motion.h1
+          className="couple_name"
+          initial={{ letterSpacing: "5px", opacity: 0 }}
+          animate={{ letterSpacing: "0px", opacity: 1 }}
+          transition={{ duration: 1.6, ease: "easeOut", delay: 0.6 }}
+        >
+          David & Katy
+        </motion.h1>
+      </motion.div>
+    </motion.div>
   );
 };
 

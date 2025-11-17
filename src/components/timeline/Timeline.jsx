@@ -11,120 +11,93 @@ import fire from "../../assets/ff.png";
 import guest from "../../assets/gg.png";
 import night from "../../assets/nn.png";
 
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
 const Timeline = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-150px" });
+
+  // Wedding vibe animations
+  const leftFade = {
+    hidden: { opacity: 0, x: -40 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  };
+
+  const rightFade = {
+    hidden: { opacity: 0, x: 40 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  };
+
+  const container = {
+    show: {
+      transition: {
+        staggerChildren: 0.25, // smooth timeline wave
+      },
+    },
+  };
+
+  const timelineData = [
+    { icon: ant, time: "12:00 PM", text: "Welcome Drinks & Appetisers" },
+    { icon: band, time: "1:00 PM", text: "1st Band Performance" },
+    { icon: seat, time: "1:45 PM", text: "Please Be Seated for Ceremony" },
+    { icon: wedding, time: "2:00 PM", text: "Wedding Ceremony" },
+    { icon: seat, time: "3:00 PM", text: "Speeches & Food" },
+    { icon: cake, time: "4:00 PM", text: "Cake Cutting" },
+    { icon: photo, time: "4:15 PM", text: "Photo Shoot" },
+    {
+      icon: guest,
+      time: "5:00 PM – 6:00 PM",
+      text: "Evening Guests Arrive & 2nd Band",
+    },
+    { icon: dance, time: "7:00 PM", text: "First Dance" },
+    { icon: fire, time: "9:00 PM", text: "Fire Dancers" },
+    { icon: last, time: "10:00 PM", text: "3rd Music Act" },
+    { icon: night, time: "11:00 PM", text: "End of Night" },
+  ];
+
   return (
     <div className="timeline">
-      <h1 className="timeline_title">timeline</h1>
+      <motion.h1
+        className="timeline_title"
+        initial={{ opacity: 0, letterSpacing: "5px" }}
+        animate={{ opacity: 1, letterSpacing: "0px" }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+      >
+        timeline
+      </motion.h1>
 
-      <div className="timeline_grid">
-        {/* 12:00 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={ant} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">12:00 PM</h2>
-          <p className="actual_timeline">Welcome Drinks & Appetisers</p>
-        </div>
+      {/* Timeline container */}
+      <motion.div
+        ref={ref}
+        className="timeline_grid"
+        variants={container}
+        initial="hidden"
+        animate={inView ? "show" : "hidden"}
+      >
+        {timelineData.map((item, index) => (
+          <>
+            {/* Icon */}
+            <motion.div
+              className="timeline_sub icon_sub"
+              variants={leftFade}
+              key={`icon-${index}`}
+            >
+              <img src={item.icon} alt="" className="timeline_icon" />
+            </motion.div>
 
-        {/* 1:00 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={band} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">1:00 PM</h2>
-          <p className="actual_timeline">1st Band Performance</p>
-        </div>
-
-        {/* 1:45 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={seat} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">1:45 PM</h2>
-          <p className="actual_timeline">Please Be Seated for Ceremony</p>
-        </div>
-
-        {/* 2:00 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={wedding} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">2:00 PM</h2>
-          <p className="actual_timeline">Wedding Ceremony</p>
-        </div>
-
-        {/* 3:00 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={seat} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">3:00 PM</h2>
-          <p className="actual_timeline">Speeches & Food</p>
-        </div>
-
-        {/* 4:00 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={cake} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">4:00 PM</h2>
-          <p className="actual_timeline">Cake Cutting</p>
-        </div>
-
-        {/* 4:15 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={photo} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">4:15 PM</h2>
-          <p className="actual_timeline">Photo Shoot</p>
-        </div>
-
-        {/* 5:00–6:00 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={guest} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">5:00 PM – 6:00 PM</h2>
-          <p className="actual_timeline">Evening Guests Arrive & 2nd Band</p>
-        </div>
-
-        {/* 7:00 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={dance} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">7:00 PM</h2>
-          <p className="actual_timeline">First Dance</p>
-        </div>
-
-        {/* 9:00 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={fire} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">9:00 PM</h2>
-          <p className="actual_timeline">Fire Dancers</p>
-        </div>
-
-        {/* 10:00 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={last} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">10:00 PM</h2>
-          <p className="actual_timeline">3rd Music Act</p>
-        </div>
-
-        {/* 11:00 PM */}
-        <div className="timeline_sub icon_sub">
-          <img src={night} alt="" className="timeline_icon" />
-        </div>
-        <div className="timeline_sub">
-          <h2 className="event_actual_time">11:00 PM</h2>
-          <p className="actual_timeline">End of Night</p>
-        </div>
-      </div>
+            {/* Text */}
+            <motion.div
+              className="timeline_sub"
+              variants={rightFade}
+              key={`text-${index}`}
+            >
+              <h2 className="event_actual_time">{item.time}</h2>
+              <p className="actual_timeline">{item.text}</p>
+            </motion.div>
+          </>
+        ))}
+      </motion.div>
     </div>
   );
 };

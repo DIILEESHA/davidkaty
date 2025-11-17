@@ -1,7 +1,11 @@
 /* Default / Desktop */
 .footer {
-  background-color: var(--gray);
+  /* background-color: var(--gray); */
+  background-color: #0000006a;
+
   display: flex;
+  position: relative;
+  z-index: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -46,6 +50,7 @@
 
 .fook {
   position: relative;
+  z-index: 1;
   overflow: hidden;
 }
 
@@ -57,6 +62,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
+
   transform: rotate(10deg);
 }
 
@@ -66,6 +73,7 @@
   top: 0;
   bottom: 0;
   display: flex;
+  z-index: 2;
   align-items: center;
   justify-content: center;
   transform: rotate(-10deg);
@@ -73,10 +81,12 @@
 
 .cop {
   width: 300px;
+  position: relative;
+  z-index: 1;
   height: 35vh;
   object-fit: cover;
   border-radius: 20px;
-  border: 5px solid #fff;
+  border: 5px solid #ddd;
 }
 
 /* Tablet: 768px - 1024px */

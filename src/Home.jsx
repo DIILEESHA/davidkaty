@@ -8,7 +8,9 @@ import Footer from "./components/footer/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <div className="tex">
+
+   
       <div id="header">
         <Header />
       </div>
