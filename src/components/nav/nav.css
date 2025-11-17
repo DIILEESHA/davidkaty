@@ -32,7 +32,7 @@
 .nav_ul {
   display: flex;
   position: relative;
-  z-index: 10000000;
+  z-index: 1000;
   gap: 40px;
   align-items: center;
 }
@@ -43,6 +43,8 @@
   font-family: "arial";
   text-transform: uppercase;
   cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
 
 /* Mobile Menu Icon */

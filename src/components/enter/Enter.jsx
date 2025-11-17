@@ -31,7 +31,7 @@ const Enter = () => {
         animate={inView ? "show" : "hidden"}
         variants={fadeIn}
       >
-        <motion.h2 className="timeline_title" variants={fadeUp}>
+        <motion.h2 className="timeline_title" id="where-to-stay" variants={fadeUp}>
           where to stay
         </motion.h2>
 

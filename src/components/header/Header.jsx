@@ -14,7 +14,7 @@ const Header = () => {
     >
       {/* NAV - soft fade from top */}
 
-      <Nav />
+      {/* <Nav /> */}
 
       {/* IMAGE - subtle slow zoom-in */}
       <motion.div

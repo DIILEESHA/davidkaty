@@ -5,29 +5,19 @@
   scroll-behavior: smooth;
 }
 
-.apply {
-  min-height: 100vh;
-  background-image: url("./assets/bee.jpg");
-  /* backdrop-filter: blur(6px); */
-  position: fixed;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow-y: auto; /* allow scrolling for Home components */
-}
 
 .sold {
-  height: 100vh;
   width: 100%;
-  position: fixed;
+  min-height: 100vh; /* ensures full viewport initially */
   background-image: url("./assets/bees.jpg");
   background-size: cover;
   background-position: center center;
-  overflow-y: scroll;
+  background-attachment: fixed; /* makes the image stay in place */
+  position: relative;
 }
 
 .tex{
-  position: relative;
+  /* position: relative; */
 }
 
 .tex::after{

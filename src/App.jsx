@@ -3,17 +3,19 @@ import Home from "./Home";
 import RsvpForm from "./pages/rsvps/RsvpForm";
 import AdminDashboard from "./pages/rsvps/AdminDashboard";
 import "./App.css";
+import Nav from "./components/nav/Nav";
 
 const App = () => {
   return (
     <div className="sold">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/rsvp" element={<RsvpForm />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-        </Routes>
-      </Router>
+        <Nav />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/rsvp" element={<RsvpForm />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+          </Routes>
+        </Router>
     </div>
   );
 };
