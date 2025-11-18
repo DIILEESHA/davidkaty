@@ -6,6 +6,9 @@ import p from "../../assets/photo.webp";
 import c from "../../assets/characterman.jpeg";
 import s from "../../assets/sax.jpeg";
 import f from "../../assets/fire.webp";
+import th from "../../assets/the.jpg";
+import thy from "../../assets/crown.jpg";
+import pl from "../../assets/plum.jpg";
 
 const Enter = () => {
   return (
@@ -24,7 +27,7 @@ const Enter = () => {
         <div className="enter_grid">
           <div className="enter_subs fade-in">
             <img
-              src="https://www.crownhotelblandford.co.uk/wp-content/uploads/sites/3/2023/09/DSC_3341.jpg?format=auto&width=1920"
+              src={thy}
               className="enter_band_img"
               alt=""
               loading="lazy"
@@ -48,7 +51,7 @@ const Enter = () => {
 
           <div className="enter_subs fade-in">
             <img
-              src="https://plumbermanor.co.uk/wp-content/uploads/2018/01/summer-gardens-min.jpg"
+              src={pl}
               className="enter_band_img"
               alt=""
               loading="lazy"
@@ -129,7 +132,7 @@ const Enter = () => {
 
           <div className="enter_subs fade-in">
             <img
-              src="https://img.warble-entertainment.com//689/the-hype10.jpg"
+              src={th}
               className="enter_band_img"
               alt=""
               loading="lazy"
