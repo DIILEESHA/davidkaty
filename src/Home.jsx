@@ -27,7 +27,7 @@ const Home = () => {
         <Rsvp />
       </div>
       <div>
-        <Enter />
+        {/* <Enter /> */}
       </div>
 
       <Footer />
