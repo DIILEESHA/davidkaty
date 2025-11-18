@@ -39,7 +39,7 @@ const Enter = () => {
             <a
               href="https://www.crownhotelblandford.co.uk/"
               target="_blank"
-              className="view website_link"
+              className=" website_link"
             >
               Website Link
             </a>
@@ -64,7 +64,7 @@ const Enter = () => {
             <a
               href="https://plumbermanor.co.uk/"
               target="_blank"
-              className="view website_link"
+              className=" website_link"
             >
               Website Link
             </a>
@@ -105,7 +105,7 @@ const Enter = () => {
             <a
               href="https://www.thehypeband.co.uk/"
               target="_blank"
-              className="view website_link"
+              className=" website_link"
             >
               Website Link
             </a>
@@ -143,7 +143,7 @@ const Enter = () => {
               <a
                 href="http://www.thenashvilleheat.co.uk/"
                 target="_blank"
-                className="view website_link"
+                className=" website_link"
               >
                 Website Link
               </a>
