@@ -1,69 +1,61 @@
 import "./e.css";
 import heater from "../../assets/heat.jpg";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+
+// ⭐ Lightweight Scroll Trigger Hook
+const useScroll = () => {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setVisible(true);
+      },
+      { threshold: 0.2 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, visible];
+};
+
+// ⭐ Super-light animation
+const fade = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 const Enter = () => {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-150px" });
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { duration: 1, ease: "easeOut" } },
-  };
-
-  const zoomIn = {
-    hidden: { opacity: 0, scale: 1.1 },
-    show: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 1, ease: "easeOut" },
-    },
-  };
+  const [ref, show] = useScroll();
 
   return (
-    <div className="enter">
+    <div className="enter" ref={ref}>
+      {/* WHERE TO STAY */}
       <motion.div
-        ref={ref}
         className="enter_middle"
         initial="hidden"
-        animate={inView ? "show" : "hidden"}
-        variants={fadeIn}
+        animate={show ? "show" : "hidden"}
+        variants={fade}
       >
-        <motion.h2
-          className="timeline_title"
-          id="where-to-stay"
-          variants={fadeUp}
-        >
-          where to stay
-        </motion.h2>
+        <h2 className="timeline_title" id="where-to-stay">Where to stay</h2>
 
-        <motion.p
-          className="enter_p width_cut"
-          variants={fadeUp}
-          transition={{ delay: 0.2 }}
-        >
-          Guests are more than welcome to stay on-site at Redlands Breaks! You
-          can either: Please contact David and Katy if you’d like to stay
-          on-site. For those preferring local accommodation, here are nearby
-          options:
-        </motion.p>
+        <p className="enter_p width_cut">
+          Guests are welcome to stay on-site at Redlands Breaks. Contact David
+          and Katy if you’d like to stay there. For those preferring local
+          accommodation, here are nearby options:
+        </p>
 
         <div className="enter_grid">
-          <motion.div
-            className="enter_subs"
-            variants={zoomIn}
-            transition={{ delay: 0.3 }}
-          >
+          <motion.div className="enter_subs" variants={fade}>
             <img
               src="https://www.crownhotelblandford.co.uk/wp-content/uploads/sites/3/2023/09/DSC_3341.jpg?format=auto&width=1920"
-              alt=""
               className="enter_band_img"
+              alt=""
             />
             <h2 className="band_name">The Crown Hotel, Blandford Forum</h2>
             <p className="band_more">
@@ -75,20 +67,16 @@ const Enter = () => {
                 target="_blank"
                 className="website_link"
               >
-                website Link
+                Website Link
               </a>
             </button>
           </motion.div>
 
-          <motion.div
-            className="enter_subs"
-            variants={zoomIn}
-            transition={{ delay: 0.5 }}
-          >
+          <motion.div className="enter_subs" variants={fade}>
             <img
               src="https://plumbermanor.co.uk/wp-content/uploads/2018/01/summer-gardens-min.jpg"
-              alt=""
               className="enter_band_img"
+              alt=""
             />
             <h2 className="band_name">Plumber Manor</h2>
             <p className="band_more">
@@ -100,58 +88,38 @@ const Enter = () => {
                 target="_blank"
                 className="website_link"
               >
-                website Link
+                Website Link
               </a>
             </button>
           </motion.div>
         </div>
 
-        <motion.p
-          className="enter_p width_cut"
-          variants={fadeUp}
-          transition={{ delay: 0.2 }}
-        >
+        <p className="enter_p width_cut">
           A bus will run from central Blandford to the venue and back. It leaves
-          the Morrison car park at 5:30 PM and returns from Redlands at 11:00
-          PM.
-        </motion.p>
-        <br />
-        <br />
+          Morrison car park at 5:30 PM and returns from Redlands at 11:00 PM.
+        </p>
       </motion.div>
 
-      {/* Entertainment Section */}
+      {/* ENTERTAINMENT */}
       <motion.div
         className="enter_middle"
         id="band"
         initial="hidden"
-        animate={inView ? "show" : "hidden"}
-        variants={fadeIn}
-        transition={{ delay: 0.6 }}
+        animate={show ? "show" : "hidden"}
+        variants={fade}
       >
-        <motion.h2 className="timeline_title" variants={fadeUp}>
-          Entertainment
-        </motion.h2>
+        <h2 className="timeline_title">Entertainment</h2>
 
-        <motion.p
-          className="enter_p"
-          variants={fadeUp}
-          transition={{ delay: 0.2 }}
-        >
-          We have lined up an amazing selection of entertainment for our big
-          day!
-        </motion.p>
+        <p className="enter_p">
+          We have lined up an amazing selection of entertainment for our big day!
+        </p>
 
         <div className="enter_grid dotss">
-          <motion.div
-            className="enter_subs"
-            variants={zoomIn}
-            transition={{ delay: 0.3 }}
-          >
+          <motion.div className="enter_subs" variants={fade}>
             <img src={heater} alt="" className="enter_band_img" />
             <h2 className="band_name">The Hype Band</h2>
             <p className="band_more">
-              An energetic band delivering high-energy performances that get
-              guests excited and set the tone for a fun celebration.
+              An energetic band delivering high-energy performances.
             </p>
             <button className="view">
               <a
@@ -159,86 +127,64 @@ const Enter = () => {
                 target="_blank"
                 className="website_link"
               >
-                website Link
+                Website Link
               </a>
             </button>
           </motion.div>
 
-          <motion.div
-            className="enter_subs"
-            variants={zoomIn}
-            transition={{ delay: 0.3 }}
-          >
+          <motion.div className="enter_subs" variants={fade}>
             <div className="img_grid">
               <div className="img_sub_grid">
                 <img
                   src="https://www.pastiche.org.uk/wp-content/uploads/2025/02/MirrorMenkCYpTuZupzOMtkmfYumSAkq.jpeg"
-                  alt=""
                   className="other_img"
                 />
               </div>
-
               <div className="img_sub_grid">
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGZ8VYInxzPMmtHv2i81AZcEOk5pqCfXKS2Q&s"
-                  alt=""
                   className="other_img"
                 />
               </div>
-
               <div className="img_sub_grid">
                 <img
                   src="https://www.womangettingmarried.com/wp-content/uploads/2025/02/minimalist-wedding-photobooth-683x1024.jpg"
-                  alt=""
                   className="other_img"
                 />
               </div>
-
               <div className="img_sub_grid">
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh_rs-OFpoWP553jOVQ7A5KAfpvDAK-jTRtazD8WRlK3Y5KV5TcSaXx4jKelUSCW4gdVc&usqp=CAU"
-                  alt=""
                   className="other_img"
                 />
               </div>
-
               <div className="img_sub_grid">
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcGPDokQGSSNwcRMtLnSOurX92saxt7eAMGw&s"
-                  alt=""
                   className="other_img"
                 />
               </div>
-
               <div className="img_sub_grid">
                 <img
                   src="https://thumbs.dreamstime.com/b/amazing-fire-show-night-festival-wedding-party-fire-da-amazing-fire-show-night-festival-wedding-party-fire-117880520.jpg"
-                  alt=""
                   className="other_img"
                 />
               </div>
             </div>
             <h2 className="band_name">Other Entertainment</h2>
             <p className="band_more">
-              Evening fun includes Mirror Men, Bucking Bronco, Photo Booth,
-              Character Man, Wendy Sax, and Fire Dancers.
+Evening fun includes Mirror Men, Bucking Bronco, Photo Booth, Character Man, Wendy Sax, and Fire Dancers.
             </p>
           </motion.div>
 
-          <motion.div
-            className="enter_subs"
-            variants={zoomIn}
-            transition={{ delay: 0.5 }}
-          >
+          <motion.div className="enter_subs" variants={fade}>
             <img
               src="https://img.warble-entertainment.com//689/the-hype10.jpg"
-              alt=""
               className="enter_band_img"
             />
             <h2 className="band_name">The Nashville Heat</h2>
             <p className="band_more">
-              A talented group blending soulful melodies and vibrant rhythms to
-              create a lively and memorable atmosphere.
+              A talented group blending soulful melodies and vibrant rhythms.
             </p>
             <button className="view">
               <a
@@ -246,7 +192,7 @@ const Enter = () => {
                 target="_blank"
                 className="website_link"
               >
-                website Link
+                Website Link
               </a>
             </button>
           </motion.div>
