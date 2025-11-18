@@ -2,7 +2,12 @@ import "./e.css";
 import heater from "../../assets/heat.jpg";
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-
+import mirr from "../../assets/mirror.jpeg"
+import h from "../../assets/horse.jpeg"
+import p from "../../assets/photo.webp"
+import c from "../../assets/characterman.jpeg"
+import s from "../../assets/sax.jpeg"
+import f from "../../assets/fire.webp"
 // ⭐ Lightweight Scroll Trigger Hook
 const useScroll = () => {
   const ref = useRef(null);
@@ -136,37 +141,37 @@ const Enter = () => {
             <div className="img_grid">
               <div className="img_sub_grid">
                 <img
-                  src="https://www.pastiche.org.uk/wp-content/uploads/2025/02/MirrorMenkCYpTuZupzOMtkmfYumSAkq.jpeg"
+                  src={mirr}
                   className="other_img"
                 />
               </div>
               <div className="img_sub_grid">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGZ8VYInxzPMmtHv2i81AZcEOk5pqCfXKS2Q&s"
+                  src={h}
                   className="other_img"
                 />
               </div>
               <div className="img_sub_grid">
                 <img
-                  src="https://www.womangettingmarried.com/wp-content/uploads/2025/02/minimalist-wedding-photobooth-683x1024.jpg"
+                  src={p}
                   className="other_img"
                 />
               </div>
               <div className="img_sub_grid">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh_rs-OFpoWP553jOVQ7A5KAfpvDAK-jTRtazD8WRlK3Y5KV5TcSaXx4jKelUSCW4gdVc&usqp=CAU"
+                src={c}
                   className="other_img"
                 />
               </div>
               <div className="img_sub_grid">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcGPDokQGSSNwcRMtLnSOurX92saxt7eAMGw&s"
+                  src={s}
                   className="other_img"
                 />
               </div>
               <div className="img_sub_grid">
                 <img
-                  src="https://thumbs.dreamstime.com/b/amazing-fire-show-night-festival-wedding-party-fire-da-amazing-fire-show-night-festival-wedding-party-fire-117880520.jpg"
+                src={f}
                   className="other_img"
                 />
               </div>
