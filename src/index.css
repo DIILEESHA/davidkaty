@@ -11,6 +11,7 @@
   min-height: 100vh; /* ensures full viewport initially */
   background-image: url("./assets/bees.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed; /* makes the image stay in place */
   position: relative;
