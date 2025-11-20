@@ -20,7 +20,9 @@
 .tex{
   /* position: relative; */
 }
-
+.ghot{
+  margin: 0 30px;
+}
 .tex::after{
   position: absolute;
   content: "";
@@ -28,7 +30,7 @@
   display: flex;align-items: center;justify-content: center;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(2px);
 
   height: 100%;
 }
@@ -65,4 +67,11 @@
 #where-to-stay,
 #rsvp {
   scroll-margin-top: 80px; /* height of your navbar */
+}
+@media (max-width: 824px) {
+
+
+  .ghot{
+  margin: 0 25px 0 15px;
+}
 }

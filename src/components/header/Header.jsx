@@ -39,7 +39,8 @@ const Header = () => {
           animate={{ letterSpacing: "0px", opacity: 1 }}
           transition={{ duration: 1.6, ease: "easeOut", delay: 0.6 }}
         >
-          David & Katy
+          David <span className="ghot">&</span>
+          Katy
         </motion.h1>
       </motion.div>
     </motion.div>
