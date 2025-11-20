@@ -5,32 +5,40 @@
   scroll-behavior: smooth;
 }
 
-
 .sold {
   width: 100%;
-  min-height: 100vh; /* ensures full viewport initially */
+  min-height: 100vh; /* allow full page height */
   background-image: url("./assets/bees.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-attachment: fixed; /* makes the image stay in place */
-  position: relative;
+  background-attachment: fixed; /* optional for parallax effect */
+  position: relative; /* change from fixed to relative */
+  overflow-y: auto; /* default scroll */
 }
 
-.tex{
+
+.jkk{
+  position: relative;
+  z-index: 1000;
+}
+
+.tex {
   /* position: relative; */
 }
-.ghot{
+.ghot {
   margin: 0 30px;
 }
-.tex::after{
+.tex::after {
   position: absolute;
   content: "";
   width: 100%;
-  display: flex;align-items: center;justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1px);
 
   height: 100%;
 }
@@ -69,9 +77,7 @@
   scroll-margin-top: 80px; /* height of your navbar */
 }
 @media (max-width: 824px) {
-
-
-  .ghot{
-  margin: 0 25px 0 15px;
-}
+  .ghot {
+    margin: 0 25px 0 15px;
+  }
 }

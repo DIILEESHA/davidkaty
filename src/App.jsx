@@ -19,14 +19,14 @@ const AppWrapper = () => {
 };
 
 const App = () => {
-  const location = useLocation();
+  // const location = useLocation();
 
   // Show Nav only on Home page
-  const showNav = location.pathname === "/";
+  // const showNav = location.pathname === "/";
 
   return (
-    <div className="sold">
-      {showNav && <Nav />}
+    <div className="tex">
+      {/* {showNav && <Nav />} */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rsvp" element={<RsvpForm />} />

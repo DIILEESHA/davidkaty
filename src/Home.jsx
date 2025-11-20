@@ -5,12 +5,15 @@ import Timeline from "./components/timeline/Timeline";
 import Rsvp from "./components/rsvp/Rsvp";
 import Enter from "./components/enter/Enter";
 import Footer from "./components/footer/Footer";
+import Nav from "./components/nav/Nav";
 
 const Home = () => {
   return (
-    <div className="tex">
+    <div className="sold">
+<div className="jkk">
 
-   
+   <Nav/>
+</div>
       <div id="header">
         <Header />
       </div>
