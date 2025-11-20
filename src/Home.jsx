@@ -6,14 +6,15 @@ import Rsvp from "./components/rsvp/Rsvp";
 import Enter from "./components/enter/Enter";
 import Footer from "./components/footer/Footer";
 import Nav from "./components/nav/Nav";
+import QrGenerator from "./QrGenerator";
 
 const Home = () => {
   return (
     <div className="sold">
-<div className="jkk">
-
-   <Nav/>
-</div>
+      <div className="jkk">
+        {/* <QrGenerator /> */}
+        <Nav />
+      </div>
       <div id="header">
         <Header />
       </div>
