@@ -8,11 +8,11 @@
 .sold {
   width: 100%;
   min-height: 100vh; /* allow full page height */
-  background-image: url("./assets/bcs.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed; /* optional for parallax effect */
+  background-image: url("./assets/bcs.png");
   position: relative; /* change from fixed to relative */
   overflow-y: auto; /* default scroll */
 }
@@ -23,8 +23,17 @@
   z-index: 1000;
 }
 
+
 .tex {
-  /* position: relative; */
+  width: 100%;
+  min-height: 100vh; /* allow full page height */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; /* optional for parallax effect */
+  background-image: url("./assets/bcs.png");
+  position: relative; /* change from fixed to relative */
+  overflow-y: auto; /* default scroll */
 }
 .ghot {
   margin: 0 30px;

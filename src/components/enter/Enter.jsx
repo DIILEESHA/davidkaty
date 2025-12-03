@@ -75,19 +75,36 @@ const Enter = () => {
           </div>
         </div>
 
-        <p className="enter_p width_cut">
-          A bus will run from central Blandford to the venue and back. It leaves
-          Morrison car park at 5:30 PM and returns from Redlands at 11:00 PM.
-        </p>
-      </div>
+   <p className="enter_p width_cut">
+  We have limited on-site spaces with our own bell tents, or you're welcome to bring
+  your campervan/motorhome or pitch your own tent. 
+  <br /><br />
+  For those preferring local accommodation, here are some nearby options. 
+  You can also explore Airbnbs around the area.
+  <br /><br />
+  A bus will run from central Blandford to the venue and back.
+  <br />
+  <b>Pick-up:</b> 4:45 PM – Morrisons Car Park
+  <br />
+  <b>Return:</b> 11:00 PM – Redlands Breaks
+  <br /><br />
+  Please let us know on your RSVP how many seats you need.
+</p>
 
+      </div>
+<br/>
+<br/>
+<br/>
       {/* ENTERTAINMENT */}
       <div className="enter_middle fade-in" id="band">
         <h2 className="timeline_title">Entertainment</h2>
-        <p className="enter_p">
-          We have lined up an amazing selection of entertainment for our big
-          day!
-        </p>
+ <p className="enter_p width_cut">
+  Evening fun includes: Caricature artist, Mirror Man, Bucking Bronco, 
+  Photobooth, 2 benders, Wendy Sax, and Fire Dancer.
+  <br />
+  Scrap pics include the horse, Minnie & Mickey, and a photo frame.
+</p>
+
 
         <div className="enter_grid dotss">
           <div className="enter_subs fade-in">

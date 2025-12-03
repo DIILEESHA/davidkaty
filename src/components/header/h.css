@@ -4,10 +4,12 @@
   justify-content: center;
 }
 .header_imger {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
 
   display: flex;
+  padding: 10px;
+  border: 3px solid #fff;
   align-items: center;
   justify-content: center;
   object-fit: cover;
