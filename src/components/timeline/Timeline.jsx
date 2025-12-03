@@ -38,22 +38,20 @@ const Timeline = () => {
   };
 
   const timelineData = [
-    { icon: ant, time: "12:00 PM", text: "Welcome Drinks & Appetisers" },
-    { icon: band, time: "1:00 PM", text: "1st Band Performance" },
-    { icon: seat, time: "1:45 PM", text: "Please Be Seated for Ceremony" },
-    { icon: wedding, time: "2:00 PM", text: "Wedding Ceremony" },
-    { icon: seat, time: "3:00 PM", text: "Speeches & Food" },
-    { icon: cake, time: "4:00 PM", text: "Cake Cutting" },
-    { icon: photo, time: "4:15 PM", text: "Photo Shoot" },
     {
-      icon: guest,
-      time: "5:00 PM – 6:00 PM",
-      text: "Evening Guests Arrive & 2nd Band",
+      icon: band,
+      time: "12:00 PM",
+      text: "1st Band Starts – Welcome Drinks & Appetisers",
     },
+    { icon: seat, time: "1:45 PM", text: "Please Be Seated" },
+    { icon: wedding, time: "2:00 PM", text: "Ceremony" },
+    { icon: cake, time: "3:30 PM", text: "Speeches, Food & Cutting of Cake" },
+    { icon: band, time: "5:00 PM", text: "Evening Band Starts" },
+    { icon: guest, time: "5:00 PM – 6:00 PM", text: "Evening Guests Arrive" },
     { icon: dance, time: "7:00 PM", text: "First Dance" },
     { icon: fire, time: "9:00 PM", text: "Fire Dancers" },
     { icon: last, time: "10:00 PM", text: "3rd Music Act" },
-    { icon: night, time: "11:00 PM", text: "End of Night" },
+    { icon: night, time: "11:00 PM", text: "The Grand Finale" },
   ];
 
   return (
