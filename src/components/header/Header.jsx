@@ -1,6 +1,6 @@
 import Nav from "../nav/Nav";
 import "./h.css";
-import cos from "../../assets/logz.png";
+import cos from "../../assets/logz.jpg";
 
 import { motion } from "framer-motion";
 
