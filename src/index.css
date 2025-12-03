@@ -8,7 +8,7 @@
 .sold {
   width: 100%;
   min-height: 100vh; /* allow full page height */
-  background-image: url("./assets/bees.jpg");
+  background-image: url("./assets/bcs.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
