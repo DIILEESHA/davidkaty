@@ -83,17 +83,18 @@ const Story = () => {
             initial="hidden"
             animate={inView1 ? "show" : "hidden"}
           >
-            We first crossed paths 21 years ago when David walked into the
-            barbershop and Katie happened to be the one to cut his hair. That
-            chance moment turned into years of staying in touch, growing closer,
-            and building a bond that always found its way back to us.
+            David and Katy first crossed paths 21 years ago when David walked
+            into the barbershop and Katie happened to be the one to cut his
+            hair. That chance moment turned into years of staying in touch,
+            growing closer, and building a bond that always found its way back
+            to them.
             <br />
             <br />
-            Three years ago, our story found a new chapter—one filled with
+            Three years ago, their story found a new chapter—one filled with
             laughter, adventures, and creating a business together. Every step
-            since has led us to this moment. We’re so excited to celebrate our
-            wedding day with the people who mean the most to us, right here at
-            our home, Redlands Breaks.
+            since has led them to this moment. They are so excited to celebrate
+            our wedding day with the people who mean the most to them, right
+            here at their home, Redlands Breaks.
           </motion.p>
         </motion.div>
       </div>
