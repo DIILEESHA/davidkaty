@@ -9,10 +9,13 @@ import "react-toastify/dist/ReactToastify.css";
 
 const RsvpForm = () => {
   const [attendance, setAttendance] = useState("");
-  const [plusOne, setPlusOne] = useState("");
   const [fullName, setFullName] = useState("");
-  const [dietary, setDietary] = useState("");
-  const [plusOneName, setPlusOneName] = useState("");
+  const [guestCount, setGuestCount] = useState("");
+  const [childCount, setChildCount] = useState("");
+  const [guestNames, setGuestNames] = useState("");
+  const [busToEvent, setBusToEvent] = useState(false);
+  const [busReturn, setBusReturn] = useState(false);
+  const [allergies, setAllergies] = useState("");
   const [message, setMessage] = useState("");
 
   // Errors
@@ -26,17 +29,34 @@ const RsvpForm = () => {
 
     if (!attendance) temp.attendance = "Please select attendance";
 
-    if (attendance === "accept" && plusOne === "") {
-      temp.plusOne = "Please select plus one option";
-    }
-
-    if (attendance === "accept" && plusOne === "yes" && !plusOneName.trim()) {
-      temp.plusOneName = "Plus One Name is required";
+    if (attendance === "accept") {
+      if (!guestCount || Number(guestCount) < 1) {
+        temp.guestCount = "Please enter number of guests (at least 1)";
+      }
+      if (childCount && Number(childCount) < 0) {
+        temp.childCount = "Children count cannot be negative";
+      }
+      if (!guestNames.trim()) {
+        temp.guestNames = "Please list the names of guests attending";
+      }
     }
 
     setErrors(temp);
 
     return Object.keys(temp).length === 0;
+  };
+
+  const handleAttendanceChange = (value) => {
+    setAttendance(value);
+    setErrors({});
+    if (value !== "accept") {
+      setGuestCount("");
+      setChildCount("");
+      setGuestNames("");
+      setBusToEvent(false);
+      setBusReturn(false);
+      setAllergies("");
+    }
   };
 
 const handleSubmit = async (e) => {
@@ -48,9 +68,12 @@ const handleSubmit = async (e) => {
     await addDoc(collection(db, "rsvp"), {
       fullName,
       attendance,
-      plusOne,
-      plusOneName: plusOne === "yes" ? plusOneName : "",
-      dietary: attendance === "accept" ? dietary : "",
+      guestCount: attendance === "accept" ? Number(guestCount) : 0,
+      childCount: attendance === "accept" ? Number(childCount || 0) : 0,
+      guestNames: attendance === "accept" ? guestNames : "",
+      busToEvent: attendance === "accept" ? busToEvent : false,
+      busReturn: attendance === "accept" ? busReturn : false,
+      allergies: attendance === "accept" ? allergies : "",
       message,
       createdAt: new Date(),
     });
@@ -60,9 +83,12 @@ const handleSubmit = async (e) => {
     // Clear fields
     setFullName("");
     setAttendance("");
-    setPlusOne("");
-    setPlusOneName("");
-    setDietary("");
+    setGuestCount("");
+    setChildCount("");
+    setGuestNames("");
+    setBusToEvent(false);
+    setBusReturn(false);
+    setAllergies("");
     setMessage("");
     setErrors({});
   } catch (error) {
@@ -124,13 +150,12 @@ const handleSubmit = async (e) => {
                 type="radio"
                 id="attend_accept"
                 name="attend"
-                value="accept"
-                checked={attendance === "accept"}
-                onChange={(e) => {
-                  setAttendance(e.target.value);
-                  setPlusOne("");
-                }}
-              />
+              value="accept"
+              checked={attendance === "accept"}
+              onChange={(e) => {
+                handleAttendanceChange(e.target.value);
+              }}
+            />
               <label htmlFor="attend_accept" className="form_label">
                 Accepts with pleasure
               </label>
@@ -141,13 +166,12 @@ const handleSubmit = async (e) => {
                 type="radio"
                 id="attend_decline"
                 name="attend"
-                value="decline"
-                checked={attendance === "decline"}
-                onChange={(e) => {
-                  setAttendance(e.target.value);
-                  setPlusOne("");
-                }}
-              />
+              value="decline"
+              checked={attendance === "decline"}
+              onChange={(e) => {
+                handleAttendanceChange(e.target.value);
+              }}
+            />
               <label htmlFor="attend_decline" className="form_label">
                 Declines with regret
               </label>
@@ -158,76 +182,99 @@ const handleSubmit = async (e) => {
             )}
           </div>
 
-          {/* SHOW ONLY IF ACCEPT */}
-          {attendance === "accept" && (
-            <>
-              {/* PLUS ONE */}
-              <div className="form_input_section">
-                <label className="rsvp_label">Would you like a plus one?</label>
+          {/* ADDITIONAL DETAILS */}
+          <div className="form_input_section">
+            <label className="rsvp_label">
+              How many guests?{" "}
+              <span className="note">(if attending)</span>
+            </label>
+            <input
+              type="number"
+              min="1"
+              className="rsvp_input"
+              value={guestCount}
+              onChange={(e) => setGuestCount(e.target.value)}
+              disabled={attendance !== "accept"}
+            />
+            {errors.guestCount && (
+              <span className="error">{errors.guestCount}</span>
+            )}
+          </div>
 
-                <div className="former">
-                  <input
-                    type="radio"
-                    id="plus_yes"
-                    name="plusone"
-                    value="yes"
-                    checked={plusOne === "yes"}
-                    onChange={(e) => setPlusOne(e.target.value)}
-                  />
-                  <label htmlFor="plus_yes" className="form_label">
-                    Yes
-                  </label>
-                </div>
+          <div className="form_input_section">
+            <label className="rsvp_label">
+              How many children under 12?{" "}
+              <span className="note">(if attending)</span>
+            </label>
+            <input
+              type="number"
+              min="0"
+              className="rsvp_input"
+              value={childCount}
+              onChange={(e) => setChildCount(e.target.value)}
+              disabled={attendance !== "accept"}
+            />
+            {errors.childCount && (
+              <span className="error">{errors.childCount}</span>
+            )}
+          </div>
 
-                <div className="former">
-                  <input
-                    type="radio"
-                    id="plus_no"
-                    name="plusone"
-                    value="no"
-                    checked={plusOne === "no"}
-                    onChange={(e) => setPlusOne(e.target.value)}
-                  />
-                  <label htmlFor="plus_no" className="form_label">
-                    No
-                  </label>
-                </div>
+          <div className="form_input_section">
+            <label className="rsvp_label">List of names</label>
+            <textarea
+              rows={4}
+              className="rsvp_input"
+              value={guestNames}
+              onChange={(e) => setGuestNames(e.target.value)}
+              placeholder="Please include all guest names"
+              disabled={attendance !== "accept"}
+            ></textarea>
+            {errors.guestNames && (
+              <span className="error">{errors.guestNames}</span>
+            )}
+          </div>
 
-                {errors.plusOne && (
-                  <span className="error">{errors.plusOne}</span>
-                )}
-              </div>
+          <div className="form_input_section">
+            <label className="rsvp_label">Bus transport</label>
+            <div className="former">
+              <input
+                type="checkbox"
+                id="bus_to"
+                checked={busToEvent}
+                onChange={(e) => setBusToEvent(e.target.checked)}
+                disabled={attendance !== "accept"}
+              />
+              <label htmlFor="bus_to" className="form_label">
+                Bus transport to the event
+              </label>
+            </div>
+            <div className="former">
+              <input
+                type="checkbox"
+                id="bus_return"
+                checked={busReturn}
+                onChange={(e) => setBusReturn(e.target.checked)}
+                disabled={attendance !== "accept"}
+              />
+              <label htmlFor="bus_return" className="form_label">
+                Bus transport leaving the event
+              </label>
+            </div>
+          </div>
 
-              {/* PLUS ONE NAME */}
-              {plusOne === "yes" && (
-                <div className="form_input_section">
-                  <label className="rsvp_label">Plus One Full Name</label>
-                  <input
-                    type="text"
-                    className="rsvp_input"
-                    value={plusOneName}
-                    onChange={(e) => setPlusOneName(e.target.value)}
-                  />
-                  {errors.plusOneName && (
-                    <span className="error">{errors.plusOneName}</span>
-                  )}
-                </div>
-              )}
-
-              {/* DIETARY */}
-              <div className="form_input_section">
-                <label className="rsvp_label">
-                  Allergies / Dietary Restrictions
-                </label>
-                <input
-                  type="text"
-                  className="rsvp_input"
-                  value={dietary}
-                  onChange={(e) => setDietary(e.target.value)}
-                />
-              </div>
-            </>
-          )}
+          <div className="form_input_section">
+            <label className="rsvp_label">
+              Food allergies and other information
+            </label>
+            <textarea
+              rows={4}
+              className="rsvp_input"
+              value={allergies}
+              onChange={(e) => setAllergies(e.target.value)}
+              placeholder="Let us know any dietary needs or other details."
+              disabled={attendance !== "accept"}
+            ></textarea>
+          </div>
 
           {/* MESSAGE */}
           <div className="form_input_section">

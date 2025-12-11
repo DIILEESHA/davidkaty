@@ -18,6 +18,12 @@
   display: block;
 }
 
+.note {
+  font-size: 12px;
+  font-family: "arial";
+  opacity: 0.8;
+}
+
 .submit_btn {
   width: 100%;
   background: #000;

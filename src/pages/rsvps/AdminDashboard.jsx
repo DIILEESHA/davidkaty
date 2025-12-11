@@ -15,7 +15,6 @@ const AdminDashboard = () => {
 
   // Filters
   const [attendanceFilter, setAttendanceFilter] = useState("");
-  const [plusOneFilter, setPlusOneFilter] = useState("");
   const [searchText, setSearchText] = useState("");
 
   // Admin login state
@@ -77,16 +76,12 @@ const AdminDashboard = () => {
       data = data.filter((item) => item.attendance === attendanceFilter);
     }
 
-    if (plusOneFilter) {
-      data = data.filter((item) => item.plusOne === plusOneFilter);
-    }
-
     setFiltered(data);
   };
 
   useEffect(() => {
     filterData();
-  }, [searchText, attendanceFilter, plusOneFilter]);
+  }, [searchText, attendanceFilter]);
 
   // Delete RSVP
   const deleteRSVP = (id) => {
@@ -110,9 +105,12 @@ const AdminDashboard = () => {
     const sheetData = filtered.map((item) => ({
       "Full Name": item.fullName,
       Attendance: item.attendance,
-      "Plus One": item.plusOne,
-      "Plus One Name": item.plusOneName || "",
-      Dietary: item.dietary || "",
+      "Guests": item.guestCount ?? "",
+      "Children Under 12": item.childCount ?? "",
+      "Guest Names": item.guestNames || "",
+      "Bus To Event": item.busToEvent ? "Yes" : "No",
+      "Bus Return": item.busReturn ? "Yes" : "No",
+      "Allergies / Info": item.allergies || item.dietary || "",
       Message: item.message || "",
       Date: item.createdAt ? item.createdAt.toString() : "",
     }));
@@ -131,9 +129,20 @@ const AdminDashboard = () => {
       dataIndex: "attendance",
       render: (v) => (v === "accept" ? "Accepts" : "Declines"),
     },
-    { title: "Plus One", dataIndex: "plusOne" },
-    { title: "Plus One Name", dataIndex: "plusOneName" },
-    { title: "Dietary", dataIndex: "dietary" },
+    { title: "Guests", dataIndex: "guestCount" },
+    { title: "Children <12", dataIndex: "childCount" },
+    { title: "Guest Names", dataIndex: "guestNames" },
+    {
+      title: "Bus To Event",
+      dataIndex: "busToEvent",
+      render: (v) => (v ? "Yes" : "No"),
+    },
+    {
+      title: "Bus Return",
+      dataIndex: "busReturn",
+      render: (v) => (v ? "Yes" : "No"),
+    },
+    { title: "Allergies / Info", dataIndex: "allergies" },
     { title: "Message", dataIndex: "message" },
     {
       title: "Delete",
@@ -195,16 +204,6 @@ const AdminDashboard = () => {
             >
               <Option value="accept">Accept</Option>
               <Option value="decline">Decline</Option>
-            </Select>
-
-            <Select
-              placeholder="Plus One"
-              allowClear
-              style={{ width: 180 }}
-              onChange={(value) => setPlusOneFilter(value)}
-            >
-              <Option value="yes">Yes</Option>
-              <Option value="no">No</Option>
             </Select>
 
             <Button type="primary" onClick={downloadExcel}>

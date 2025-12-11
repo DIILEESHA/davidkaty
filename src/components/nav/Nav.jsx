@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "../../assets/logor.png";
+import logo from "../../assets/logz.jpg";
 import "./nav.css";
 import { Menu, X } from "lucide-react";
 

@@ -38,7 +38,9 @@
 .ghot {
   margin: 0 30px;
 }
-.tex::after {
+
+.tex::after,
+.sold::after {
   position: absolute;
   content: "";
   width: 100%;
@@ -46,7 +48,7 @@
   align-items: center;
   justify-content: center;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.42);
   backdrop-filter: blur(1px);
 
   height: 100%;

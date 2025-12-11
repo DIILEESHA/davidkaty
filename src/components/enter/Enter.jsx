@@ -1,11 +1,9 @@
 import "./e.css";
 import heater from "../../assets/heat.jpg";
 import mirr from "../../assets/mirror.jpeg";
-import h from "../../assets/horse.jpeg";
-import p from "../../assets/photo.webp";
-import c from "../../assets/characterman.jpeg";
 import s from "../../assets/sax.jpeg";
 import f from "../../assets/fire.webp";
+import fireworks from "../../assets/fireworks.jpg";
 import th from "../../assets/the.jpg";
 import thy from "../../assets/crown.jpg";
 import pl from "../../assets/plum.jpg";
@@ -99,10 +97,8 @@ const Enter = () => {
       <div className="enter_middle fade-in" id="band">
         <h2 className="timeline_title">Entertainment</h2>
  <p className="enter_p width_cut">
-  Evening fun includes: Caricature artist, Mirror Man, Bucking Bronco, 
+ Evening fun includes: Caricature artist, Mirror Man, Bucking Bronco, 
   Photobooth, 2 benders, Wendy Sax, and Fire Dancer.
-  <br />
-  Scrap pics include the horse, Minnie & Mickey, and a photo frame.
 </p>
 
 
@@ -134,7 +130,7 @@ const Enter = () => {
 
           <div className="enter_subs fade-in">
             <div className="img_grid">
-              {[mirr, h, p, c, s, f].map((img, i) => (
+              {[mirr, s, f, fireworks].map((img, i) => (
                 <div key={i} className="img_sub_grid">
                   <img src={img} alt="" className="other_img" loading="lazy" />
                 </div>

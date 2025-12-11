@@ -8,6 +8,7 @@ import photo from "../../assets/p.png";
 import dance from "../../assets/da.png";
 import last from "../../assets/mu.png";
 import fire from "../../assets/ff.png";
+import fireworks from "../../assets/fireworks.svg";
 import guest from "../../assets/gg.png";
 import night from "../../assets/nn.png";
 
@@ -51,6 +52,7 @@ const Timeline = () => {
     { icon: dance, time: "7:00 PM", text: "First Dance" },
     { icon: fire, time: "9:00 PM", text: "Fire Dancers" },
     { icon: last, time: "10:00 PM", text: "3rd Music Act" },
+    { icon: fireworks, time: "10:45 PM", text: "Fireworks" },
     { icon: night, time: "11:00 PM", text: "The Grand Finale" },
   ];
 

@@ -58,7 +58,7 @@ const Story = () => {
           initial="hidden"
           animate={inView1 ? "show" : "hidden"}
         >
-          <img src={str} alt="" className="story_img" />
+          <img src={str} alt="" className="story_img story_img_top" />
         </motion.div>
 
         {/* Text - slide right */}

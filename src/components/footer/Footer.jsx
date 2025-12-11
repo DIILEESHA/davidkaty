@@ -1,6 +1,6 @@
 import "./f.css";
 
-import log from "../../assets/logor.png";
+import log from "../../assets/logz.jpg";
 import cos from "../../assets/couple.jpg";
 import cos2 from "../../assets/couple3.jpg";
 
