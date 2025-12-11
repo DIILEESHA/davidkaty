@@ -67,8 +67,46 @@ const Rsvp = () => {
         variants={fadeUp}
         transition={{ delay: 0.6 }}
       >
-        Kindly respond by January 15, 2026
+        Kindly respond by February 14, 2026
       </motion.p>
+
+      {/* Gifts & Celebrations */}
+      <div id="gifts" className="rsvp_gifts">
+        <motion.div variants={fadeUp} transition={{ delay: 0.7 }}>
+          <h3 className="timeline_title gifts_title">Gifts &amp; Celebrations</h3>
+        </motion.div>
+        <motion.div
+          className="rsvp_poem"
+          variants={fadeUp}
+          transition={{ delay: 0.8 }}
+        >
+          <p>The most important gift to us</p>
+          <p>is having you share our day,</p>
+          <p>but if you wish to give something more</p>
+          <p>in a different way,</p>
+          <br />
+          <p>We’re grateful for your kindness,</p>
+          <p>whatever you choose to do,</p>
+          <p>whether it’s a thoughtful wedding gift</p>
+          <p>or help towards our honeymoon too.</p>
+          <br />
+          <p>Whatever you decide to give,</p>
+          <p>please know it means so much,</p>
+          <p>and will be truly appreciated</p>
+          <p>for your kindness and your touch.</p>
+        </motion.div>
+
+        <motion.a
+          href="https://www.paypal.com/pool/9kOBQqw1TI?sr=wccr"
+          target="_blank"
+          rel="noreferrer"
+          className="rsvp_paypal"
+          variants={fadeUp}
+          transition={{ delay: 1 }}
+        >
+          Contribute via PayPal
+        </motion.a>
+      </div>
     </motion.div>
   );
 };

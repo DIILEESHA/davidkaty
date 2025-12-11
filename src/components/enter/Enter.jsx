@@ -97,8 +97,8 @@ const Enter = () => {
       <div className="enter_middle fade-in" id="band">
         <h2 className="timeline_title">Entertainment</h2>
  <p className="enter_p width_cut">
- Evening fun includes: Caricature artist, Mirror Man, Bucking Bronco, 
-  Photobooth, 2 benders, Wendy Sax, and Fire Dancer.
+  Evening fun includes: Caricature artist, Mirror Man, Bucking Bronco, 
+  Photobooth, Wendy Sax, and Fire Dancer.
 </p>
 
 

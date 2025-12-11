@@ -84,7 +84,7 @@ const Story = () => {
             animate={inView1 ? "show" : "hidden"}
           >
             David and Katy first crossed paths 21 years ago when David walked
-            into the barbershop and Katie happened to be the one to cut his
+            into the barbershop and Katy happened to be the one to cut his
             hair. That chance moment turned into years of staying in touch,
             growing closer, and building a bond that always found its way back
             to them.

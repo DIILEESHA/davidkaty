@@ -3,6 +3,7 @@ import Header from "./components/header/Header";
 import Story from "./components/story/Story";
 import Timeline from "./components/timeline/Timeline";
 import Rsvp from "./components/rsvp/Rsvp";
+import FoodMenu from "./components/menu/FoodMenu";
 import Enter from "./components/enter/Enter";
 import Footer from "./components/footer/Footer";
 import Nav from "./components/nav/Nav";
@@ -25,6 +26,10 @@ const Home = () => {
 
       <div id="timeline">
         <Timeline />
+      </div>
+
+      <div id="food-menu">
+        <FoodMenu />
       </div>
 
       <div id="rsvp">

@@ -53,3 +53,67 @@
     padding: 50px 0;
   }
 }
+
+.rsvp_gifts {
+  margin-top: 40px;
+}
+
+.rsvp_section_title {
+  color: #fff;
+  font-family: "play";
+  font-size: 32px;
+  text-transform: uppercase;
+  margin: 50px 0 20px;
+}
+
+.gifts_title {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.rsvp_poem {
+  margin: 60px auto 20px;
+  max-width: 650px;
+  color: #fff;
+  font-family: "arial";
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.rsvp_poem p {
+  margin: 2px 0;
+}
+
+@media (max-width: 767px) {
+  .rsvp_poem {
+    max-width: 90%;
+    font-size: 15px;
+  }
+
+  .rsvp_section_title {
+    font-size: 26px;
+    margin: 40px 0 16px;
+  }
+
+  .gifts_title {
+    font-size: 32px;
+  }
+}
+
+.rsvp_paypal {
+  display: inline-block;
+  margin: 10px auto 20px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fab12f 40%, #ff9d00 60%, #fa812f 100%);
+  color: #000;
+  font-family: "arial";
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rsvp_paypal:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
