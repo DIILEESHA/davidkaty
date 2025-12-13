@@ -2,8 +2,6 @@ import { useState } from "react";
 import Footer from "../../components/footer/Footer";
 import "./rs.css";
 import { House } from "lucide-react";
-import { db } from "./config";
-import { collection, addDoc } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -59,24 +57,38 @@ const RsvpForm = () => {
     }
   };
 
+const FORM_ENDPOINT = "https://formspree.io/f/xldqzzne";
+
 const handleSubmit = async (e) => {
   e.preventDefault();
 
   if (!validate()) return;
 
   try {
-    await addDoc(collection(db, "rsvp"), {
+    const payload = {
       fullName,
       attendance,
-      guestCount: attendance === "accept" ? Number(guestCount) : 0,
-      childCount: attendance === "accept" ? Number(childCount || 0) : 0,
+      guestCount: attendance === "accept" ? guestCount : "",
+      childCount: attendance === "accept" ? childCount : "",
       guestNames: attendance === "accept" ? guestNames : "",
       busToEvent: attendance === "accept" ? busToEvent : false,
       busReturn: attendance === "accept" ? busReturn : false,
       allergies: attendance === "accept" ? allergies : "",
       message,
-      createdAt: new Date(),
+    };
+
+    const res = await fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
     });
+
+    if (!res.ok) {
+      throw new Error("Form submission failed");
+    }
 
     toast.success("RSVP Submitted Successfully!");
 
